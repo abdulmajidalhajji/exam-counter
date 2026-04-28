@@ -2,7 +2,7 @@
  body {
     margin: 0;
     padding: 0;
-    background: url(/exam-counter/image/exam.png) no-repeat center center;
+    background: url(/exam-counter/exam.webp) no-repeat center center;
     background-size: cover;
     background-attachment: fixed; 
     
