@@ -19,7 +19,7 @@
 }
 
 .countdown-container {
-    width: 95%;
+    width: 90%;
     max-width: 1200px;
     text-align: center;
     /* justify/align items don't work here unless this is also a flex-container */
