@@ -1,0 +1,133 @@
+
+ body {
+    margin: 0;
+    padding: 0;
+    background: url(/exam/image/exam.png) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; 
+    
+    /* FIX: Force body to take up the full screen height */
+    min-height: 100vh; 
+    width: 100%;
+
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+.countdown-container {
+    width: 95%;
+    max-width: 1200px;
+    text-align: center;
+    /* justify/align items don't work here unless this is also a flex-container */
+    margin: 0 auto; 
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #38bdf8;
+    direction: rtl;
+    margin-bottom: 30px;
+    
+    /* Force one line */
+    white-space: nowrap;
+    
+    /* Responsive Font: 
+       1.2rem = minimum size
+       8vw = fluid size based on screen width
+       5rem = maximum size */
+    font-size: clamp(1rem, 8vw, 5rem); 
+
+    /* Glow and Blur Effects */
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Shaping */
+    display: inline-block;
+    padding: 20px 40px; /* Reduced vertical padding for mobile friendliness */
+    border-radius: 50px;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+}
+#countdown {
+    position: relative; /* Necessary for absolute stars inside */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vw;
+     margin-top: 3%;
+    padding: 4vw 2vw;
+    background:rgba(15, 23, 42, 0.2); /* Darker box for better star contrast */
+    border-radius: 25px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+    
+    /* This clips the stars to the box borders */
+    overflow: hidden; 
+}
+.time-box {
+    position: relative;
+    z-index: 2; /* Sits above the stars */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.time-box span {
+    background: rgba(15, 23, 42, 20); /* Semi-transparent numbers */
+    backdrop-filter: blur(4px);
+    padding: 15% 0;
+    border-radius: 12px;
+    font-size: clamp(2rem, 9vw, 6rem);
+    color: #fff;
+    text-shadow: 0 0 10px #38bdf8;
+    border: 1.5px solid rgba(56, 189, 248, 0.3);
+}
+
+.time-box p {
+    font-size: clamp(1rem, 5vw, 3rem);
+    margin-top: 30px;
+    font-weight: bold;
+    color: #38bdf8;
+    text-shadow: 0 0 15px #38bdf8;
+    white-space: nowrap;
+   padding-top: 2rem;
+    /* 1. Text Glow */
+    text-shadow: 0 0 20px rgba(56, 189, 248, 1);
+
+    /* 2. The Blur Box behind the text */
+    background: rgba(15, 23, 42, 10); /* Subtle dark tint */
+    backdrop-filter: blur(10px);       /* The blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* 3. Shaping the blur box */
+    display: inline-block;         
+    padding: 10px 10px;
+    border-radius: 50px;               /* Rounded pill shape */
+    border: 1px solid rgba(56, 189, 248, 0.5); /* Soft outer edge */
+}
+
+ 
+@media (max-width: 300px) {
+    .countdown-container {
+        /* Ensure it doesn't touch the very edges of the screen */
+        width: 90%; 
+    }
+    
+    #countdown {
+        flex-direction: column; /* Stack boxes */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 1.8rem; /* Scale down for small screens */
+        padding: 20px;
+    }
+}
